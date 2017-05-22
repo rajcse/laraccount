@@ -65,13 +65,13 @@
                 <td class="text-center">
                     @if ($entry->type == 'in')
                         PHP {{ number_format($entry->amount, 2) }}
-                        @php ($total_in += (double) number_format($entry->amount, 2))
+                        @php ($total_in += (double) $entry->amount)
                     @endif
                 </td>
                 <td class="text-center">
                     @if ($entry->type == 'out')
                         PHP {{ number_format($entry->amount, 2) }}
-                        @php ($total_out += (double) number_format($entry->amount, 2))
+                        @php ($total_out += (double) $entry->amount)
                     @endif
                 </td>
             </tr>
@@ -80,6 +80,10 @@
             <td colspan="2" class="text-right">Total</td>
             <td class="text-center">PHP {{ number_format($total_in, 2) }}</td>
             <td class="text-center">PHP {{ number_format($total_out, 2) }}</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-right">Net Value</td>
+            <td colspan="2" class="text-center">PHP {{ number_format($total_in - $total_out, 2) }}</td>
         </tr>
     @endif
     </tbody>
