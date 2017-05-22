@@ -46,6 +46,10 @@ class HomeController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'amount'    =>  'required|numeric'
+        ]);
+
         Entry::create([
             'owner' =>  Auth::user()->id,
             'amount'    =>  $request->amount,
@@ -59,6 +63,10 @@ class HomeController extends Controller
 
     public function edit(Request $request)
     {
+        $this->validate($request, [
+            'amount'    =>  'required|numeric'
+        ]);
+
         $entry = Entry::find($request->id);
         // Check if we own this
         if ($entry->owner != Auth::user()->id) {
