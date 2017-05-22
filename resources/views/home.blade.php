@@ -78,7 +78,7 @@
                                             <a href="#" class="edit" data-id="{{ $entry->id }}" data-description="{{ $entry->description }}" data-amount="{{ number_format($entry->amount, 2) }}" data-type="{{ $entry->type }}">
                                                 PHP {{ number_format($entry->amount, 2) }}
                                             </a>
-                                            @php ($total_in += (double) number_format($entry->amount, 2))
+                                            @php ($total_in += (double) $entry->amount)
                                         @endif
                                     </td>
                                     <td class="text-center">
@@ -86,7 +86,7 @@
                                             <a href="#" class="edit" data-id="{{ $entry->id }}" data-description="{{ $entry->description }}" data-amount="{{ number_format($entry->amount, 2) }}" data-type="{{ $entry->type }}">
                                                 PHP {{ number_format($entry->amount, 2) }}
                                             </a>
-                                            @php ($total_out += (double) number_format($entry->amount, 2))
+                                            @php ($total_out += (double) $entry->amount)
                                         @endif
                                     </td>
                                 </tr>
