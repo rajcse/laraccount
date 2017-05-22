@@ -96,6 +96,10 @@
                                 <td class="text-center">PHP {{ number_format($total_in, 2) }}</td>
                                 <td class="text-center">PHP {{ number_format($total_out, 2) }}</td>
                             </tr>
+                            <tr>
+                                <td colspan="3" class="text-right">Net Value</td>
+                                <td class="text-center">PHP {{ number_format($total_in - $total_out, 2) }}</td>
+                            </tr>
                         @endif
                         </tbody>
                     </table>
